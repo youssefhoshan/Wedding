@@ -9,6 +9,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Youssef & Nina Trouwen</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #a4827b;
@@ -366,10 +377,60 @@
       animation: heartbeat 1.5s infinite;
     }
     
+    /* Map Section Styles */
+    .map-container {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+    
+    .map {
+      width: 100%;
+      height: 400px;
+      border: none;
+    }
+    
+    .location-info {
+      background-color: white;
+      padding: 25px;
+      text-align: center;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+    
+    .address {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    .heart-marker {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -100%);
+      z-index: 10;
+      width: 30px;
+      height: 30px;
+      filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.3));
+      animation: pulse 1.5s infinite;
+    }
+    
     @keyframes heartbeat {
       0% { transform: scale(1); }
       50% { transform: scale(1.2); }
       100% { transform: scale(1); }
+    }
+    
+    @keyframes pulse {
+      0% { transform: translate(-50%, -100%) scale(1); }
+      50% { transform: translate(-50%, -100%) scale(1.1); }
+      100% { transform: translate(-50%, -100%) scale(1); }
     }
     
     @media (max-width: 991px) {
@@ -467,6 +528,10 @@
       .countdown-number {
         font-size: 1.8rem;
       }
+      
+      .map {
+        height: 300px;
+      }
     }
   </style>
 </head>
@@ -484,6 +549,7 @@
         <div class="d-none d-md-flex">
           <a href="#ourstory" class="nav-link">Ons Verhaal</a>
           <a href="#schedule" class="nav-link">Dagplanning</a>
+          <a href="#location" class="nav-link">Locatie</a>
           <a href="#rsvp" class="nav-link">RSVP</a>
           <a href="#gallery" class="nav-link">Foto's</a>
           <a href="#faq" class="nav-link">FAQ</a>
@@ -558,6 +624,34 @@
     </div>
   </section>
 
+<!-- Location Map Section -->
+<section class="section section-light" id="location">
+  <div class="container text-center">
+    <h2 class="section-title">Locatie</h2>
+    <div class="map-container">
+      <!-- Heart marker SVG -->
+      <svg class="heart-marker" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#a4827b" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+      </svg>
+      
+      <!-- Embedded map iframe -->
+      <iframe class="map" src="https://www.openstreetmap.org/export/embed.html?bbox=4.9539756774902344%2C52.5045443994445%2C5.005328655242921%2C52.52920278132865&amp;layer=mapnik&amp;marker=52.51687557471928%2C4.979652166366577" allowfullscreen></iframe>
+      
+      <div class="location-info">
+        <h2>Villa Clementine</h2>
+        <p class="address">
+          Plantsoengracht 8<br>
+          1441 DE Purmerend<br>
+          Noord-Holland, Netherlands
+        </p>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=Villa+Clementine+Plantsoengracht+8+1441+DE+Purmerend+Netherlands" target="_blank" class="btn-primary">
+          <i class="fas fa-map-marker-alt me-2"></i>Route plannen
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
   <!-- RSVP -->
   <section class="section section-light text-center" id="rsvp">
     <div class="container">
@@ -615,7 +709,7 @@
               <i class="fas fa-map-marker-alt me-2"></i> Hoe kom ik bij de locatie?
             </div>
             <div class="faq-answer">
-              Villa Clementine is makkelijk bereikbaar per auto en er is parkeergelegenheid.
+              Villa Clementine is makkelijk bereikbaar per auto en er is parkeergelegenheid tegen betaling .
             </div>
           </div>
           <div class="faq-item">
