@@ -202,6 +202,13 @@
       object-fit: cover;
       z-index: 1;
       animation: kenBurns 30s ease-in-out infinite alternate;
+      content: url('moving_dunes.jpeg');
+    }
+
+    @media (max-width: 768px) {
+      .hero-image {
+        content: url('moving_dunes_phone.jpeg');
+      }
     }
 
     @keyframes kenBurns {
@@ -491,6 +498,17 @@
       color: var(--primary);
       margin-bottom: 12px;
       font-family: 'Cormorant Garamond', serif;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .timeline-time i {
+      font-size: 1.2rem;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-time {
+      justify-content: flex-end;
     }
 
     .timeline-content p {
@@ -782,15 +800,45 @@
       opacity: 1;
     }
 
-    /* Summer color palette */
-    .swatch-peach { background: #FFE5B4; }
-    .swatch-sage { background: #C9E4C5; }
-    .swatch-lavender { background: #E6D5F5; }
-    .swatch-powder { background: #B4D4E1; }
-    .swatch-blush { background: #FFD6D6; }
-    .swatch-mint { background: #D4EDD4; }
-    .swatch-champagne { background: #F7E7CE; }
-    .swatch-cream { background: #FFF8DC; }
+    /* Summer color palette - Pastel */
+    .swatch-peach { background: #FFE5CC; }
+    .swatch-sage { background: #D4E7D4; }
+    .swatch-lavender { background: #E9DCFA; }
+    .swatch-powder { background: #D4E5F0; }
+    .swatch-blush { background: #FFE5E5; }
+    .swatch-mint { background: #E0F5E0; }
+    .swatch-champagne { background: #FAEBD7; }
+    .swatch-cream { background: #FFFEF0; }
+
+    /* Dresscode Section */
+    .dresscode-section {
+      background: linear-gradient(135deg, var(--bg) 0%, var(--cream) 100%);
+      text-align: center;
+    }
+
+    .dresscode-text {
+      font-size: 1.25rem;
+      color: var(--text-light);
+      margin-bottom: 50px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 2;
+    }
+
+    .dresscode-colors {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 25px;
+      flex-wrap: wrap;
+      margin-top: 60px;
+    }
+
+    .dresscode-colors .color-swatch {
+      width: 70px;
+      height: 70px;
+    }
 
     /* Footer */
     footer {
@@ -828,6 +876,10 @@
 
     /* Responsive Design */
     @media (max-width: 1024px) {
+      .timeline-time {
+        justify-content: flex-start !important;
+      }
+    }
       .story-container, .location-grid {
         grid-template-columns: 1fr;
         gap: 50px;
@@ -1007,6 +1059,7 @@
         <a href="#schedule" class="nav-link">Dagplanning</a>
         <a href="#location" class="nav-link">Locatie</a>
         <a href="#gallery" class="nav-link">Foto's</a>
+        <a href="#dresscode" class="nav-link">Dresscode</a>
         <a href="#rsvp" class="nav-link">RSVP</a>
       </div>
       <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -1021,6 +1074,7 @@
     <a href="#schedule" class="nav-link">Dagplanning</a>
     <a href="#location" class="nav-link">Locatie</a>
     <a href="#gallery" class="nav-link">Foto's</a>
+    <a href="#dresscode" class="nav-link">Dresscode</a>
     <a href="#rsvp" class="nav-link">RSVP</a>
   </div>
 
@@ -1060,35 +1114,35 @@
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-content">
-          <div class="timeline-time">14:45</div>
+          <div class="timeline-time"><i class="fas fa-door-open"></i> 14:45</div>
           <p>Ontvangst gasten</p>
         </div>
       </div>
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-content">
-          <div class="timeline-time">15:00</div>
+          <div class="timeline-time"><i class="fas fa-heart"></i> 15:00</div>
           <p>Ceremonie</p>
         </div>
       </div>
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-content">
-          <div class="timeline-time">16:00</div>
+          <div class="timeline-time"><i class="fas fa-champagne-glasses"></i> 16:00</div>
           <p>Borrel & foto's</p>
         </div>
       </div>
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-content">
-          <div class="timeline-time">17:30</div>
+          <div class="timeline-time"><i class="fas fa-utensils"></i> 17:30</div>
           <p>Diner</p>
         </div>
       </div>
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-content">
-          <div class="timeline-time">20:00</div>
+          <div class="timeline-time"><i class="fas fa-music"></i> 20:00</div>
           <p>Feest & dansen</p>
         </div>
       </div>
@@ -1132,15 +1186,25 @@
       <div class="gallery-item">
         <img src="ring.jpeg" alt="Foto gallerij">
       </div>
-      <div class="gallery-item">
-        <img src="pic_looking_away.png" alt="Foto gallerij">
-      </div>
-      <div class="gallery-item">
-        <img src="villa_clementine.jpg" alt="Foto gallerij">
-      </div>
-      <div class="gallery-item">
-        <img src="moving_dunes.jpeg" alt="Foto gallerij">
-      </div>
+    </div>
+  </section>
+
+  <!-- Dresscode -->
+  <section class="dresscode-section" id="dresscode">
+    <h2 class="section-title">Dresscode</h2>
+    <p class="dresscode-text">
+      We nodigen je uit om elegant en feestelijk te verschijnen in lichte zomerse tinten.<br>
+      Comfort en stijl zijn even belangrijk voor ons.
+    </p>
+    <div class="dresscode-colors">
+      <div class="color-swatch swatch-peach" data-name="Peach"></div>
+      <div class="color-swatch swatch-sage" data-name="Sage"></div>
+      <div class="color-swatch swatch-lavender" data-name="Lavender"></div>
+      <div class="color-swatch swatch-powder" data-name="Powder Blue"></div>
+      <div class="color-swatch swatch-blush" data-name="Blush"></div>
+      <div class="color-swatch swatch-mint" data-name="Mint"></div>
+      <div class="color-swatch swatch-champagne" data-name="Champagne"></div>
+      <div class="color-swatch swatch-cream" data-name="Cream"></div>
     </div>
   </section>
 
@@ -1157,24 +1221,6 @@
   <section class="faq-section" id="faq">
     <h2 class="section-title">Veelgestelde Vragen</h2>
     <div class="faq-grid">
-      <div class="faq-item">
-        <div class="faq-question">
-          <i class="fas fa-tshirt"></i> Wat is de dresscode?
-        </div>
-        <div class="faq-answer">
-          We nodigen je uit om elegant en feestelijk te verschijnen in lichte zomerse tinten. Comfort en stijl zijn even belangrijk voor ons.
-          <div class="color-swatches">
-            <div class="color-swatch swatch-peach" data-name="Peach"></div>
-            <div class="color-swatch swatch-sage" data-name="Sage"></div>
-            <div class="color-swatch swatch-lavender" data-name="Lavender"></div>
-            <div class="color-swatch swatch-powder" data-name="Powder Blue"></div>
-            <div class="color-swatch swatch-blush" data-name="Blush"></div>
-            <div class="color-swatch swatch-mint" data-name="Mint"></div>
-            <div class="color-swatch swatch-champagne" data-name="Champagne"></div>
-            <div class="color-swatch swatch-cream" data-name="Cream"></div>
-          </div>
-        </div>
-      </div>
       <div class="faq-item">
         <div class="faq-question">
           <i class="fas fa-map-marker-alt"></i> Hoe kom ik er?
@@ -1197,6 +1243,14 @@
         </div>
         <div class="faq-answer">
           Laat ons alsjeblieft weten van je dieetwensen of allergiëen bij je RSVP, dan zullen we dit graag voor je regelen.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <i class="fas fa-gift"></i> Cadeau?
+        </div>
+        <div class="faq-answer">
+          Jullie aanwezigheid is het mooiste cadeau. Mochten jullie ons toch willen verrassen, dan stellen we een bijdrage aan onze honeymoon zeer op prijs.
         </div>
       </div>
     </div>
