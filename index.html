@@ -791,39 +791,38 @@
     }
 
     .faq-item {
-      background: rgba(255, 255, 255, 0.8);
-      padding: 35px;
-      border-radius: 15px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+      padding: 25px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      background: transparent;
+      box-shadow: none;
+      border-radius: 0;
       transition: all 0.3s ease;
-      backdrop-filter: blur(5px);
-      border: 1px solid rgba(255, 255, 255, 0.5);
     }
 
     .faq-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12);
-      background: rgba(255, 255, 255, 0.9);
+      border-bottom-color: var(--primary);
     }
 
     .faq-question {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       font-weight: 600;
-      color: var(--primary);
-      margin-bottom: 15px;
+      color: var(--text-dark);
+      margin-bottom: 10px;
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
     }
 
     .faq-question i {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
+      color: var(--primary);
     }
 
     .faq-answer {
       color: var(--text-light);
       line-height: 1.8;
-      font-size: 1rem;
+      font-size: 1.05rem;
+      max-width: 520px;
     }
 
     /* Dresscode Colors */
